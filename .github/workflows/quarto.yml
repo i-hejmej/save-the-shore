@@ -1,0 +1,50 @@
+name: Generate Report and Animation
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: clone repo
+        uses: actions/checkout@v4
+
+      - name: config python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: matplotlib-latex config install
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y dvipng cm-super
+
+      - name: install python packages
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: install quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+
+      - name: install tinytex
+        uses: quarto-dev/quarto-actions/install-tinytex@v2
+
+      - name: render
+        run: |
+          quarto render shore_saving.ipynb --execute --to pdf
+
+      - name: upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: sprawozdanie-i-animacja
+          path: |
+            shore_saving.pdf
+            flow1.gif

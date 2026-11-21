@@ -1,0 +1,11 @@
+/*
+
+!/.github/
+!/.github/**
+
+!/.gitignore
+!/LICENSE
+!/README.md
+!/refs.bib
+!/shore_saving.ipynb
+!/requirements.txt
