@@ -31,7 +31,8 @@ jobs:
             lmodern \
             cm-super \
             dvipng \
-            ghostscript
+            ghostscript \
+            librsvg2-bin
 
       - name: install python packages
         run: |
