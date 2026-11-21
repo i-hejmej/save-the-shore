@@ -24,7 +24,13 @@ jobs:
       - name: matplotlib-latex config install
         run: |
           sudo apt-get update
-          sudo apt-get install -y dvipng cm-super
+          sudo apt-get install -y --no-install-recommends \
+            texlive-latex-extra \
+            texlive-fonts-recommended \
+            texlive-lang-polish \
+            cm-super \
+            dvipng \
+            ghostscript
 
       - name: install python packages
         run: |
