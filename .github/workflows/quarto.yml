@@ -31,11 +31,10 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: install quarto
+      - name: install quarto and tinytex
         uses: quarto-dev/quarto-actions/setup@v2
-
-      - name: install tinytex
-        uses: quarto-dev/quarto-actions/install-tinytex@v2
+        with:
+          tinytex: true
 
       - name: render
         run: |
