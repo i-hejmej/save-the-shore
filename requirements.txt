@@ -1,0 +1,8 @@
+PyMPDATA
+open-atmos-jupyter-utils
+matplotlib
+numpy
+pyyaml
+nbclient
+nbformat
+ipykernel
