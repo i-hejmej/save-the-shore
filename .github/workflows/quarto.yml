@@ -28,6 +28,7 @@ jobs:
             texlive-latex-extra \
             texlive-fonts-recommended \
             texlive-lang-polish \
+            lmodern \
             cm-super \
             dvipng \
             ghostscript
